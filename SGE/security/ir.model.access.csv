@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+categories_school_course_category,categories.school.course.category,model_school_course_category,group_school_categories,1,1,1,1
+categories_school_course,categories.school.course,model_school_course,group_school_categories,1,1,0,0
+categories_school_event,categories.school.event,school.model_school_event,group_school_categories,1,0,0,0
+categories_school_student,categories.school.student,school.model_school_student,group_school_categories,1,0,0,0

@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+    <menuitem name="Hospital" web_icon="images/hospital.png" web_icon_hover="images/hospital-hover.png" id="menu_hospital"/>
+    
+    <record model="ir.ui.view" id="view_hospital_specialty_form">
+        <field name="name">hospital.specialty.form</field>
+        <field name="model">hospital.specialty</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Specialty Health">
+                <field name="name" select="1"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_hospital_specialty_tree">
+        <field name="name">hospital.specialty.tree</field>
+        <field name="model">hospital.specialty</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Specialties Health">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_hospital_specialty">
+        <field name="name">Specialties Health</field>
+        <field name="res_model">hospital.specialty</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Specialties Health" id="menu_hospital_specialty" action="action_hospital_specialty" parent="menu_hospital"/>
+
+    <record model="ir.ui.view" id="view_hospital_history_form">
+        <field name="name">hospital.history.form</field>
+        <field name="model">hospital.history</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Medical History">
+              <group colspan="2" col="2">
+                <separator string="Patient data" colspan="2"/>
+                <field name="date" select="1"/>
+                <field name="partner_id" select="1"/>
+                <field name="employee_id" select="1"/>
+                <field name="sit" select="1"/>
+                <field name="i_am_user"/>
+              </group>
+              <group colspan="2" col="2">
+                <separator string="Specialties related" colspan="2"/>
+                <field name="specialty_ids" colspan="4" nolabel="1" attrs="{'readonly':[('i_am_user','=',False)]}" />
+              </group>
+              <group colspan="2" col="2">
+                <separator string="Results" colspan="2"/>
+                <field name="results" colspan="4" nolabel="1" attrs="{'readonly':[('i_am_user','=',False)]}"/>
+              </group>
+              <group colspan="2" col="2">
+                <separator string="Description" colspan="2"/>
+                <field name="desc" colspan="4" nolabel="1" attrs="{'readonly':[('i_am_user','=',False)]}"/>
+              </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_hospital_history_tree">
+        <field name="name">hospital.history.tree</field>
+        <field name="model">hospital.history</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Medical Histories">
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="employee_id"/>
+                <field name="sit"/>
+                <field name="results"/>
+                <field name="desc"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_hospital_history_calendar">
+        <field name="name">hospital.history.calendar</field>
+        <field name="model">hospital.history</field>
+        <field name="type">calendar</field>
+        <field name="arch" type="xml">
+          <calendar color='employee_id' date_start='date'>
+            <field name="partner_id"/>
+            <field name="employee_id"/>
+          </calendar>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_hospital_history">
+        <field name="name">History</field>
+        <field name="res_model">hospital.history</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+    <menuitem name="Medical Histories" id="menu_hospital_history" action="action_hospital_history" parent="menu_hospital"/>
+
+    <!-- Vistes per hereten de vistes existents, per substituir el camp "function" per "birthdate"-->
+    <record model="ir.ui.view" id="view_hospital_client_with_birthdate">
+        <field name="name">hospital.client.with.birthdate</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="function" position="replace">
+              <field name="birthdate" widget="date"/>
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_hospital_client_with_birthdate1">
+        <field name="name">hospital.client.with.birthdate</field>
+        <field name="model">res.partner.address</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_address_form1"/>
+        <field name="arch" type="xml">
+            <field name="function" position="replace">
+              <field name="birthdate" widget="date"/>
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_hospital_client_with_birthdate2">
+        <field name="name">hospital.client.with.birthdate</field>
+        <field name="model">res.partner.address</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_address_form2"/>
+        <field name="arch" type="xml">
+            <field name="function" position="replace">
+              <field name="birthdate" widget="date"/>
+            </field>
+        </field>
+    </record>
+
+</data>
+</openerp>

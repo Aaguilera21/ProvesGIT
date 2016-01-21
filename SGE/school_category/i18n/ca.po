@@ -1,0 +1,139 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* school_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120803-233417\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-11 11:41+0000\n"
+"PO-Revision-Date: 2016-01-11 12:46+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. module: school_category
+#: field:school.course,category_id:0 field:school.course.category,name:0
+msgid "Category"
+msgstr "Categoria"
+
+#. module: school_category
+#: help:school.course,category_id:0
+msgid "Category of the course"
+msgstr "Categoria del curs"
+
+#. module: school_category
+#: view:school.course.category:0 field:school.course.category,child_ids:0
+msgid "Child Categories"
+msgstr "Categories filles"
+
+#. module: school_category
+#: sql_constraint:school.course:0
+msgid "The Course Name must be unique!"
+msgstr "El nom del curs ha de ser únic!"
+
+#. module: school_category
+#: model:ir.actions.report.xml,name:school_category.school_courses_by_categories_W
+msgid "Courses by categories (Writer)"
+msgstr "Cursos per categories (Writer)"
+
+#. module: school_category
+#: report:Categories.W:0
+msgid "CATEGORIES"
+msgstr "CATEGORIES"
+
+#. module: school_category
+#: help:school.course.category,parent_id:0
+msgid "Name of the parent category"
+msgstr "Nom de la categoria pare"
+
+#. module: school_category
+#: report:Categories.W:0
+msgid "Parent"
+msgstr "Pare"
+
+#. module: school_category
+#: report:CoursesByCategories.W:0
+msgid "Category:"
+msgstr "Categoria:"
+
+#. module: school_category
+#: model:ir.model,name:school_category.model_school_course
+msgid "school.course"
+msgstr "school.course"
+
+#. module: school_category
+#: model:ir.actions.report.xml,name:school_category.school_categories_W
+msgid "Categories (Writer)"
+msgstr "Categories (Writer)"
+
+#. module: school_category
+#: model:res.groups,name:school_category.group_school_categories
+msgid "Categories"
+msgstr "Categories"
+
+#. module: school_category
+#: report:CoursesByCategories.W:0
+msgid "Total hours"
+msgstr "Hores totals"
+
+#. module: school_category
+#: report:Categories.W:0 report:CoursesByCategories.W:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: school_category
+#: field:school.course.category,parent_id:0
+msgid "Parent Category"
+msgstr "Categoria pare"
+
+#. module: school_category
+#: report:CoursesByCategories.W:0
+msgid "Professor"
+msgstr "Professor"
+
+#. module: school_category
+#: view:school.course.category:0
+msgid "Categories of courses"
+msgstr "Categories de cursos"
+
+#. module: school_category
+#: report:CoursesByCategories.W:0 view:school.course.category:0
+#: field:school.course.category,course_ids:0
+msgid "Courses"
+msgstr "Cursos"
+
+#. module: school_category
+#: view:school.course.category:0
+msgid "Category of courses"
+msgstr "Categoria de cursos"
+
+#. module: school_category
+#: model:ir.model,name:school_category.model_school_course_category
+msgid "school.course.category"
+msgstr "school.course.category"
+
+#. module: school_category
+#: view:school.course.category:0
+msgid "Course Card"
+msgstr "Fitxa de categoria"
+
+#. module: school_category
+#: model:ir.actions.act_window,name:school_category.action_school_course_category
+#: model:ir.ui.menu,name:school_category.menu_school_course_category
+msgid "Courses Categories"
+msgstr "Categories de cursos"
+
+#. module: school_category
+#: constraint:school.course.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "Error ! No pot crear categories recursives."
+
+#. module: school_category
+#: report:CoursesByCategories.W:0
+msgid "Subject"
+msgstr "Assumpte"

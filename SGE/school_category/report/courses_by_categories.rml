@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="57.0" y1="57.0" width="481" height="728"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="TC">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="T_T_C">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="TTColumns">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Taula1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Helvetica"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="15.0" leading="19"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="14.0" leading="17"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="14.0" leading="17"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="14.0" leading="17"/>
+    <paraStyle name="P6" fontName="Helvetica" fontSize="10.0" leading="13"/>
+    <paraStyle name="P7" fontName="Helvetica" fontSize="10.0" leading="13"/>
+    <paraStyle name="P8" fontName="Helvetica" fontSize="14.0" leading="17"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Header" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text_20_body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Contents" fontName="Helvetica"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="Standard">[[repeatIn(objects,'category')]]</para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="85.0,398.0" style="TC">
+      <tr>
+        <td>
+          <para style="P4">Category:</para>
+        </td>
+        <td>
+          <para style="P3">[[ category.course_ids and category.name or removeParentNode('story')]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="P1">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="92.0,390.0" style="T_T_C">
+      <tr>
+        <td>
+          <para style="P8">Courses</para>
+        </td>
+        <td>
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="151.0,203.0,32.0,96.0" style="TTColumns">
+      <tr>
+        <td>
+          <para style="P7">Name</para>
+        </td>
+        <td>
+          <para style="P7">Subject</para>
+        </td>
+        <td>
+          <para style="P7">Total hours</para>
+        </td>
+        <td>
+          <para style="P7">Professor</para>
+        </td>
+      </tr>
+    </blockTable>
+    <section>
+      <para style="P2">[[repeatIn(category.course_ids,'course_ids')]]</para>
+      <blockTable colWidths="151.0,203.0,32.0,96.0" style="Taula1">
+        <tr>
+          <td>
+            <para style="P6">[[ course_ids.description ]]</para>
+          </td>
+          <td>
+            <para style="P6">[[ course_ids.subject ]]</para>
+          </td>
+          <td>
+            <para style="P6">[[ course_ids.hours_total ]]</para>
+          </td>
+          <td>
+            <para style="P6">[[ course_ids.prof_id.name ]]</para>
+          </td>
+        </tr>
+      </blockTable>
+    </section>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>

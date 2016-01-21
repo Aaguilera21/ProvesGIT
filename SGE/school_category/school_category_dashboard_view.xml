@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+    <!-- Material per Quadre de Comandament de Categories -->
+    <record model="ir.ui.view" id="view_school_courses_by_category_nbr_graph">
+      <field name="name">school.courses.by.category.nbr.graph</field>
+      <field name="model">school.courses.by.category.nbr</field>
+      <field name="type">graph</field>
+      <field name="arch" type="xml">
+        <graph string="Number of courses by category" type="bar">
+          <field name="name"/>
+          <field name="nbr"/>
+        </graph>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_school_courses_by_category_nbr">
+      <field name="name">Number of courses by category</field>
+      <field name="res_model">school.courses.by.category.nbr</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">graph</field>
+    </record>
+    <record model="ir.ui.view" id="board_school_category_01">
+      <field name="name">board.school.category.01</field>
+      <field name="model">board.board</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Category Dashboard">
+          <board style="2-1">
+            <column>
+              <action string="Categories"
+                  name="%(school_category.action_school_course_category)d"
+                  creatable="true"/>
+            </column>
+            <column>
+              <action string="Number of courses by category"
+                  name="%(school_category.action_school_courses_by_category_nbr)d"
+                  view_mode="graph"/>
+            </column>
+          </board>
+        </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_school_category_dashboard">
+      <field name="name">Category manager</field>
+      <field name="res_model">board.board</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="usage">menu</field>
+      <field name="view_id" ref="board_school_category_01"/>
+    </record>
+    <menuitem id="menu_school_category_dashboard" action="action_school_category_dashboard" parent="school.menu_school_dashboards"/>
+
+</data>
+</openerp>

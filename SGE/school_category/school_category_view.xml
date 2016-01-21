@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="view_school_category_category_form">
+        <field name="name">school.category.category.form</field>
+        <field name="model">school.course.category</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Category of courses">
+                <field name="name"/>
+                <field name="parent_id"/>
+                <notebook colspan="4">
+                  <page string="Child Categories">
+                    <field name="child_ids" colspan="4" nolabel="1">
+                      <tree>
+                        <field name="name"/>
+                      </tree>
+                      <form string="Category of courses">
+                          <field name="name"/>
+                      </form>
+                    </field>
+                  </page>
+                  <page string="Courses">
+                    <field name="course_ids" colspan="4" nolabel="1">
+                      <tree>
+                        <field name="description"/>
+                        <field name="subject"/>
+                        <field name="prof_id"/>
+                        <field name="hours_total"/>
+                      </tree>
+                      <form string="Course Card">
+                          <field name="description"/>
+                          <field name="subject"/>
+                          <field name="prof_id"/>
+                          <field name="hours_total"/>
+                          <field name="requirements"/>
+                          <field name="website" widget="url"/>
+                          <field name="date"/>
+                          <field name="note" colspan="4"/>
+                      </form>
+                    </field>
+                  </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_school_category_category_tree">
+        <field name="name">school.category.category.tree</field>
+        <field name="model">school.course.category</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Categories of courses">
+                <field name="name" select="1"/>
+                <field name="parent_id" select="2"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_school_course_category">
+        <field name="name">Courses Categories</field>
+        <field name="res_model">school.course.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Courses Categories" id="menu_school_course_category" action="action_school_course_category" parent="school.menu_school_configuration"/>
+
+    <record model="ir.ui.view" id="view_school_category_course_form">
+        <field name="name">school.category.course.form</field>
+        <field name="model">school.course</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="school.view_school_course_form"/>
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+              <field name="category_id"/>
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_school_category_course_tree">
+        <field name="name">school.course.category.tree</field>
+        <field name="model">school.course</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="school.view_school_course_tree"/>
+        <field name="arch" type="xml">
+            <field name="requirements" position="replace">
+              <field name="category_id"/>
+            </field>
+        </field>
+    </record>
+
+</data>
+</openerp>

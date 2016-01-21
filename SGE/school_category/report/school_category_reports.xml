@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <report
+        id="school_categories_W"
+        model="school.course.category"
+        name="Categories.W"
+        rml="school_category/report/categories_simple.rml"
+        header="True"
+        string="Categories (Writer)"/>
+    <report
+        id="school_courses_by_categories_W"
+        model="school.course.category"
+        name="CoursesByCategories.W"
+        rml="school_category/report/courses_by_categories.rml"
+        header="True"
+        string="Courses by categories (Writer)"/>
+    <report
+        id="school_categories_JR"
+        model="school.course.category"
+        name="Categories.JR"
+        rml="school_category/report/categories_simple.jrxml"
+        header="True"
+        string="Categories (Jasper)"/>
+    <report
+        id="school_courses_by_categories_JR"
+        model="school.course.category"
+        name="CoursesByCategories.JR"
+        rml="school_category/report/courses_by_categories.jrxml"
+        header="True"
+        string="Courses by categories (Jasper)"/>
+  </data>
+</openerp>

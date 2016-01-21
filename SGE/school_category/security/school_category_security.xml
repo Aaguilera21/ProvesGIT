@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+    <record id="group_school_categories" model="res.groups">
+      <field name="name">Categories</field>
+      <field name="category_id" ref="school.category_school"/>
+    </record>
+    <record id="school.group_school_manager" model="res.groups">
+      <field name="implied_ids" eval="[(4, ref('group_school_categories'))]"/>
+    </record>
+  </data>
+</openerp>
